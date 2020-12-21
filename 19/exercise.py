@@ -13,7 +13,6 @@ def exercise1(rules_s, messages_s):
 	r=regex.compile(r'(?(DEFINE){})^(?&r0)$'.format(''.join(defs(rules_s))))
 	return sum(1 if r.match(msg) else 0 for msg in messages_s.split('\n'))
 
-
 def exercise2(rules_s, messages_s):
 	rules_s = regex.sub(r'8: 42','8: 42 | 42 8',rules_s)
 	rules_s = regex.sub(r'11: 42 31','11: 42 31 | 42 11 31',rules_s)
@@ -26,12 +25,3 @@ if __name__ == "__main__":
 	print(result)
 	result = exercise2(rules_s, messages_s)
 	print(result)
-
-# r=regex.compile(r'(?(DEFINE){})^(?&r0)$'.format(''.join(defs(rules_s))))
-# print("part1:", sum(1 if r.match(msg) else 0 for msg in messages_s.split('\n')))
-# rules_s, messages_s = open('./input.txt').read().split("\n\n",1)
-# rules_s = regex.sub(r'8: 42','8: 42 | 42 8',rules_s)
-# rules_s = regex.sub(r'11: 42 31','11: 42 31 | 42 11 31',rules_s)
-# # .. or replace with what you had in the instructions page
-# r=regex.compile(r'(?(DEFINE){})^(?&r0)$'.format(''.join(defs(rules_s))))
-# print("part2:", sum(1 if r.match(msg) else 0 for msg in messages_s.split('\n')))
